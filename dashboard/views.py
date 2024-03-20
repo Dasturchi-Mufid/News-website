@@ -8,7 +8,6 @@ def dashboard(request):
 def create_category(request):
     try:
         if request.method == 'POST':
-            print(request.POST)
             name = request.POST['name']
             models.Category.objects.create(name=name)
             messages.success(request,'Successfully created category')
@@ -24,5 +23,14 @@ def list_category(request):
 
 def edit_category(request, id):
     category = models.Category.objects.get(id=id)
+    try:
+        if request.method == 'POST':
+            name = request.POST['name']
+            category.name = name
+            category.save()
+            messages.success(request,'Successfully edited category')
+            return redirect('list-category')
+    except:
+        messages.error(request, ('Error editing category'))
     context = {'category': category}
     return render(request,'dashboard/category/edit.html',context)
