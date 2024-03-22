@@ -46,10 +46,9 @@ def register(request):
 def log_out(request):
     logout(request)
     messages.success(request,'Logout was successful')
-    return redirect('login')
+    return redirect('home')
 
 @login_required(login_url='login')
-
 def create_category(request):
     regions = models.Region.objects.all()
     categories = models.Category.objects.all()
@@ -65,14 +64,12 @@ def create_category(request):
     return render(request,'dashboard/category/create.html',context)
 
 @login_required(login_url='login')
-
 def list_category(request):
     categories = models.Category.objects.all()
     context = {'categories': categories}
     return render(request,'dashboard/category/list.html', context)
 
 @login_required(login_url='login')
-
 def edit_category(request, id):
     category = models.Category.objects.get(id=id)
     try:
@@ -88,7 +85,6 @@ def edit_category(request, id):
     return render(request,'dashboard/category/edit.html',context)
 
 @login_required(login_url='login')
-
 def delete_category(request, id):
     models.Category.objects.get(id=id).delete()
     messages.success(request,'Successfully deleted')

@@ -29,7 +29,7 @@ class Post(models.Model):
     body = models.TextField()
     date = models.DateTimeField()
     banner_img = models.ImageField(upload_to='post-baner/')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='categories')
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
 
     def __str__(self):
