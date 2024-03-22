@@ -8,6 +8,9 @@ class Ads(models.Model):
 class Region(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -28,6 +31,10 @@ class Post(models.Model):
     banner_img = models.ImageField(upload_to='post-baner/')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
 
 
 class PostImage(models.Model):

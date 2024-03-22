@@ -4,10 +4,10 @@
 <div class="card dz-card" id="bootstrap-table2">
     <div class="card-header flex-wrap d-flex justify-content-between  border-0">
         <div>
-            <h4 class="card-title">Category list</h4>
+            <h4 class="card-title">Region list</h4>
         </div>
     </div>
-    {% if categories %}
+    {% if regions %}
         <!-- tab-content -->
     <div class="tab-content" id="myTabContent-1">
         <div class="tab-pane fade active show" id="bordered" role="tabpanel" aria-labelledby="home-tab-1">
@@ -22,17 +22,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for category in categories %}
+                            {% for region in regions %}
                             <tr>
                                 <td><strong>{{forloop.counter}}</strong></td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <span class="w-space-no">{{category.name}}</span>
+                                        <span class="w-space-no">{{region.name}}</span>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="{% url 'edit-category' category.id %}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
+                                        <a href="{% url 'edit-region' region.id %}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
                                         <a href="#" class="btn btn-danger shadow btn-xs sharp" data-bs-toggle="modal" data-bs-target="#modal{{forloop.counter}}"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
@@ -44,18 +44,18 @@
             </div>
         </div>
         <!-- Modal -->
-        {% for category in categories %}
+        {% for region in regions %}
         <div class="modal fade" id="modal{{forloop.counter}}">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">{{category.name}}</h5>
+                        <h5 class="modal-title">{{region.name}}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                         </button>
                     </div>
-                    <form method="get" action="{% url 'delete-category' category.id %}">
+                    <form method="get" action="{% url 'delete-region' region.id %}">
                     <div class="modal-body">
-                        <p>Do you want to delete category {{category.name}}?</p>
+                        <p>Do you want to delete region {{region.name}}?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-danger">Yes</button>

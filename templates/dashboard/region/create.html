@@ -4,7 +4,7 @@
 <div class="col-10">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Renaming category</h4>
+            <h4 class="card-title">Creating region</h4>
         </div>
         <div class="card-body">
             <div class="basic-form">
@@ -12,8 +12,8 @@
                     {% csrf_token %}
                     <div class="input-group mb-3">
                         <span class="input-group-text">Name</span>
-                        <input type="text" class="form-control" name="name" value="{{category}}">
-						<button class="btn btn-primary" type="submit">Rename</button>
+                        <input type="text" class="form-control" name="name">
+						<button class="btn btn-primary" type="submit">Create</button>
                     </div>
                 </form>
             </div>
