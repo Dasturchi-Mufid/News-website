@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ckeditor.fields import RichTextField
 
 
 class Ads(models.Model):
@@ -45,7 +44,7 @@ class PostImage(models.Model):
 
 class PostVideo(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    video = models.FileField(upload_to='post-vido/')
+    video = models.FileField(upload_to='post-video/')
     video_url = models.URLField(blank=True, null=True)
 
 

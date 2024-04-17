@@ -26,26 +26,25 @@ def log_in(request):
             return redirect('login')
     return render(request,'dashboard/auth/login.html')
 
-def register(request):
-    if request.method == 'POST':
-        try:
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            password_confirm = request.POST.get('password_confirm')
-            if password == password_confirm:
-                User.objects.create_user(username=username, password=password)
-                user = authenticate(username=username, password=password)
-                login(request, user)
-                messages.success(request,'Registration was successful')
-                return redirect('dashboard')
-        except:
-            messages.error(request,'Registration failed')
-            return redirect('register')
-    return render(request,'dashboard/auth/register.html')
+# def register(request):
+#     if request.method == 'POST':
+#         try:
+#             username = request.POST.get('username')
+#             password = request.POST.get('password')
+#             password_confirm = request.POST.get('password_confirm')
+#             if password == password_confirm:
+#                 User.objects.create_user(username=username, password=password)
+#                 user = authenticate(username=username, password=password)
+#                 login(request, user)
+#                 messages.success(request,'Registration was successful')
+#                 return redirect('dashboard')
+#         except:
+#             messages.error(request,'Registration failed')
+#             return redirect('register')
+#     return render(request,'dashboard/auth/register.html')
 
 def log_out(request):
     logout(request)
-    messages.success(request,'Logout was successful')
     return redirect('home')
 
 @login_required(login_url='login')

@@ -4,8 +4,8 @@ from . import models
 def home(request):
     trending_news = []
     weekly_news = []
-    recent_news = models.Post.objects.all()
-    categories = models.Category.objects.all()
+    recent_news = models.Post.objects.all()[0:5]
+    categories = models.Category.objects.all()[0:5]
     news_dict = dict()
     for category in categories:
         news = models.Post.objects.filter(category=category)
