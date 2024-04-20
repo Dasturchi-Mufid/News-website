@@ -2,3 +2,20 @@
 1) News web dasturi uchun. Category, Itemlar uchun detail va listlarni ko`radigan API yozish 
 2) News web dasturi uchun Dashboardda Authentication yozish(login, logout) +
 3) News web dasturi uchun Dashboardda Category CRUD yozish +
+# Qo`shimcha ishlar
+1) get_category_post_list funksiyasi qo`shildi. bu funksiya kiritilgan id bo`yicha shu categoriyaga tegishli postlarni chiqaradi +
+2) pagination qo`shish. +
+
+1. **User Authentication and Authorization**: 
+2. **News Articles CRUD Operations**: 
+3. **Article Categories and Tags**: 
+4. **Search Functionality**:
+6. **Comments and Discussions**: 
+7. **User Profiles**: 
+8. **Social Sharing**: 
+9. **Email Notifications**: 
+10. **Analytics and Reporting**: 
+11. **Content Moderation**: 
+12. **RSS Feeds**: 
+13. **API Documentation**: 
+14. **Rate Limiting and Authentication Throttling**: 
