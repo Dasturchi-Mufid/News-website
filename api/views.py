@@ -43,3 +43,27 @@ def get_post_detail(request,id):
     queryset = models.Post.objects.get(id=id)
     post = serializers.PostSerializer(queryset)
     return Response(post.data)
+
+
+@api_view(['POST'])
+def create_comment(request,id):
+    post = models.Post.objects.get(id=id)
+    text = request.POST.get('text')
+    comment = models.Comment.objects.create(
+        post=post, 
+        text=text
+    )
+    return Response(serializers.CommentSerializer(comment).data,status=201)
+
+
+@api_view(['GET'])
+def get_post_comment(request,id):
+    queryset = models.Comment.objects.filter(post__id=id)
+    comment = serializers.CommentSerializer(queryset, many=True)
+    return Response(comment.data)
+
+@api_view(['GET'])
+def get_comment(request,id):
+    queryset = models.Comment.objects.get(id=id)
+    comment = serializers.CommentSerializer(queryset)
+    return Response(comment.data)
